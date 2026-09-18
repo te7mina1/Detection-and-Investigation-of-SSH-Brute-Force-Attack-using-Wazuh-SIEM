@@ -437,4 +437,5 @@ This highlights the importance of **event correlation, timeline analysis, and mo
 ## Author
 
 Randy
-Cybersecurity | SOC Analysis | Blue Team | Vulnerability Management
+
+Cybersecurity | SOC Analysis | Blue Team
