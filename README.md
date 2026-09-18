@@ -1,9 +1,11 @@
 # SSH Brute-Force Attack Detection and Post-Compromise Investigation Using Wazuh
 
+<!---
 ![Wazuh](https://img.shields.io/badge/SIEM-Wazuh-4A90E2?style=for-the-badge)
 ![Linux](https://img.shields.io/badge/Platform-Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![SSH](https://img.shields.io/badge/Service-SSH-222222?style=for-the-badge)
 ![MITRE ATT&CK](https://img.shields.io/badge/MITRE%20ATT%26CK-Mapped-red?style=for-the-badge)
+--->
 
 > A practical SOC home-lab investigation of **SSH password-guessing, successful authentication, and post-authentication account activity** using **Hydra, Wazuh, and Ubuntu authentication logs**.
 
@@ -80,7 +82,7 @@ Account Deletion
 ```
 ---
 
-# Attack Simulation
+## Attack Simulation
 
 The attack was simulated from **Kali Linux** using **Hydra** against the Ubuntu SSH service.
 
@@ -110,7 +112,7 @@ The simulation eventually identified a valid lab credential and successfully aut
 
 ---
 
-# Detection with Wazuh
+## Detection with Wazuh
 
 During review of Wazuh security events, an SSH detection alert identified **repeated authentication failures from the same source IP**.
 
@@ -140,9 +142,9 @@ Failed password for ubuntu from 192.168.56.1
 
 ---
 
-# Investigation Findings
+## Investigation Findings
 
-## 1. Repeated Authentication Failures
+### 1. Repeated Authentication Failures
 
 Multiple failed SSH authentication attempts were observed against the `ubuntu` account from the Kali host.
 
@@ -162,7 +164,7 @@ The activity occurred within a short period and satisfied the threshold configur
 
 ---
 
-## 2. Successful SSH Authentication
+### 2. Successful SSH Authentication
 
 The investigation then identified a successful SSH authentication from the same source:
 
@@ -192,7 +194,7 @@ This correlated with the Hydra result showing successful authentication during t
 
 ---
 
-## 3. Post-Authentication Account Creation
+### 3. Post-Authentication Account Creation
 
 Shortly after the successful SSH login, a new local account was created:
 
@@ -224,7 +226,7 @@ The account creation occurred approximately **35 seconds after the successful SS
 
 ---
 
-## 4. Account Deletion
+### 4. Account Deletion
 
 The newly created account was subsequently deleted:
 
@@ -258,7 +260,7 @@ Based on the observed timestamps, the account existed for approximately **84 sec
 
 ---
 
-# Key Findings
+## Key Findings
 
 | Investigation Area               | Finding                        |
 | -------------------------------- | ------------------------------ |
@@ -277,7 +279,7 @@ Based on the observed timestamps, the account existed for approximately **84 sec
 
 ---
 
-# Attack Timeline
+## Attack Timeline
 
 | Time         | Event                                   |
 | ------------ | --------------------------------------- |
@@ -293,7 +295,7 @@ Based on the observed timestamps, the account existed for approximately **84 sec
 
 ---
 
-# MITRE ATT&CK Mapping
+## MITRE ATT&CK Mapping
 
 | Technique                         | ID          | Tactic            | Evidence                                        |
 | --------------------------------- | ----------- | ----------------- | ----------------------------------------------- |
@@ -304,7 +306,7 @@ Based on the observed timestamps, the account existed for approximately **84 sec
 
 ---
 
-# Attack Chain
+## Attack Chain
 
 The observed activity can be summarized as the following attack chain:
 
@@ -344,7 +346,7 @@ The observed activity can be summarized as the following attack chain:
 
 ---
 
-# SOC Investigation Summary
+## SOC Investigation Summary
 
 The investigation began with a **Wazuh password-guessing alert** generated from repeated SSH authentication failures originating from `192.168.56.1`.
 
@@ -368,7 +370,7 @@ Account Deletion
 
 ---
 
-# Recommended Security Controls
+## Recommended Security Controls
 
 | Security Control                                              | Objective                                       |
 | ------------------------------------------------------------- | ----------------------------------------------- |
@@ -385,7 +387,7 @@ Account Deletion
 
 ---
 
-# Skills Demonstrated
+## Skills Demonstrated
 
 | Skill Area                         | Demonstrated Capability                                    |
 | ---------------------------------- | ---------------------------------------------------------- |
@@ -403,7 +405,7 @@ Account Deletion
 
 ---
 
-# Lab Disclaimer
+## Lab Disclaimer
 
 > This project was conducted entirely within an **authorized home-lab environment** using personally controlled virtual machines.
 >
@@ -430,3 +432,9 @@ Account Deletion
 ```
 
 This highlights the importance of **event correlation, timeline analysis, and monitoring post-authentication activity** when investigating SSH security incidents.
+
+
+## Author
+
+Randy
+Cybersecurity | SOC Analysis | Blue Team | Vulnerability Management
