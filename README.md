@@ -438,4 +438,4 @@ This highlights the importance of **event correlation, timeline analysis, and mo
 
 Randy
 
-Cybersecurity | SOC Analysis | Blue Team
+Cybersecurity | SOC Analyst | Blue Team
